@@ -4,7 +4,7 @@ encode: function (input) {
 var output = “”;
 var chr1, chr2, chr3, enc1, enc2, enc3, enc4;
 var i = 0;
-input = Base64._utf8_encode(input);
+input = btoa(input);
 while (i < input.length) {
 chr1 = input.charCodeAt(i++);
 chr2 = input.charCodeAt(i++);
@@ -44,7 +44,7 @@ if (enc4 != 64) {
 output = output + String.fromCharCode(chr3);
 }
 }
-output = Base64._utf8_decode(output);
+output = atob(output);
 return output;
 },
 _utf8_encode: function (string) {
@@ -130,7 +130,7 @@ a_to_vh = true;
 j++;
 }
 if (a_to_vh == false) {
-var encryptedUrl = Base64.encode(a_to_vi);
+var encryptedUrl = btoa(a_to_vi);
 a_to_ve[i].href = “https://blog.exposei.com/kesequl-multi-function-school-mobile-app/?url=” + encryptedUrl;
 a_to_ve[i].rel = “nofollow”;
 a_to_vb++;
